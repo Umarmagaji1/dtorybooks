@@ -1,0 +1,32 @@
+<nav class="grey darken-3">
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">StoryBooks</a>
+        <ul>
+            <li><a href="#" data-target="main-menu" class="sidenav-trigger show-on-large"><i class="fa fa-bars"></i></a></li>
+        </ul>
+
+        <ul class="right hide-on-small-only">
+            {{#if user}}
+            <li><a href="/dashboard">Welcome {{user.firstname}}</a></li>
+            <li><a href="/auth/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+            {{else}}
+            <li><a href="/stories"><i class="fa fa-book"></i> Public Stories</a></li>
+            {{/if}}
+        </ul>
+        <!--sidenav-->
+        <ul class="sidenav" id="main-menu">
+            {{#if user}}
+            <li><a href="/stories"><i class="fa fa-book"></i>Public Stories</a></li>
+            <li class="divider"></li>
+            <li><a href="/dashboard"><i class="fa fa-cog"></i>Dashboard</a></li>
+            <li><a href="/stories/my"><i class="fa fa-user"></i>My Stories</a></li>
+            <li><a href="/auth/logout"><i class="fa fa-sign-out"></i>Log Out</a></li>
+            {{else}}
+            <li><a href="/auth/google" class="btn red darken-3"><i class="fa fa-google left"></i> Login With Google</a></li>
+            <li><a href="/stories"><i class="fa fa-book"></i>Public Stories</a></li>
+            <li class="divider"></li>
+            {{/if}}
+
+        </ul>
+    </div>
+</nav>
