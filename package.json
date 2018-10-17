@@ -1,0 +1,14 @@
+{
+  "name": "storybooks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "umar magaji",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
