@@ -26,10 +26,18 @@ router.get("/add", ensureAuthenticated, (req, res) => {
 //edit stories
 router.get("/edit/:id", ensureAuthenticated, (req, res) => {
   Story.findOne({ _id: req.params.id })
+  .populate('user')
     .then(story => {
-      res.render("stories/edit", {
-        story: story
-      });
+      if(req.user){
+        if(req.user.id==story.user._id){
+          res.render("stories/edit", {
+            story: story
+          });
+        }else{
+          res.redirect('/stories')
+        }
+      }
+      
     })
     .catch(err => console.log(err));
 });
